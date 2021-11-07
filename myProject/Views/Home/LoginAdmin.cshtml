@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Customer.cshtml";
+}
+
+<h2 class="text-center">Login Admin</h2>
+<h6 class="text-center text-danger fa fa-warning">@ViewBag.loginerror</h6>
+<!-- Login Start -->
+
+<form action="/home/LoginAdmin" method="post">
+    
+    <div class="login">
+        <div class="container-fluid">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-6">
+                <div class="login-form ">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>E-mail / Username</label>
+                            <input name="email" class="form-control" type="email" placeholder="E-mail / Username">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Password</label>
+                            <input name="password" class="form-control" type="password" placeholder="Password">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="newaccount">
+                                <label class="custom-control-label" for="newaccount">Keep me signed in</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- Login End -->

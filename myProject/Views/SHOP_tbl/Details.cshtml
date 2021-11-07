@@ -1,0 +1,66 @@
+﻿@model myProject.Models.SHOP_tbl
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SHOP_tbl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CITY_tbl.CITY_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CITY_tbl.CITY_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FLOOR_tbl.FLOOR_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FLOOR_tbl.FLOOR_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SHOPKEEPER_tbl.SHOPKEEPER_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SHOPKEEPER_tbl.SHOPKEEPER_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SHOP_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SHOP_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SHOP_ADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SHOP_ADDRESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SHOP_RENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SHOP_RENT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SHOP_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

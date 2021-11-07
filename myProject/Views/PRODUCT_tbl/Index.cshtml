@@ -1,0 +1,74 @@
+﻿@model IEnumerable<myProject.Models.PRODUCT_tbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","PRODUCT_tbl")" class="btn btn-danger ">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Category Name
+        </th>
+        <th>
+            Product Name
+        </th>
+        <th>
+           Product Image
+        </th>
+        <th>
+            Product Description
+        </th>
+        <th>
+            Purchase-Price
+        </th>
+        <th>
+            Sale-Price
+        </th>
+        <th>
+            Product Availability
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var product in Model) {
+    <tr>
+        <td>
+            @product.CATEGORY_tbl.CATEGORY_NAME
+        </td>
+        <td>
+            @product.PRODUCT_NAME
+        </td>
+        <td>
+            
+            <img src="@Url.Content(product.PRODUCT_IMAGE)" width="100" height="100"/>
+        </td>
+        <td>
+            @product.PRODUCT_DESCRIPTION
+        </td>
+        <td>
+            @product.PRODUCT_PURCHASEPRICE
+        </td>
+        <td>
+            @product.PRODUCT_SALEPRICE
+        </td>
+        <td>
+            @product.PRODUCT_AVAILABILITY
+        </td>
+        <td>
+            <a class="glyphicon glyphicon-pencil btn btn-danger square-btn-adjust" href="@Url.Action("Edit", "PRODUCT_tbl", new { id = product.PRODUCT_ID})"></a>
+            <a class="glyphicon glyphicon-book btn btn-danger square-btn-adjust"   href="@Url.Action("DETAILS", "PRODUCT_tbl", new { id = product.PRODUCT_ID })"></a>
+            <a class="glyphicon glyphicon-trash btn btn-danger square-btn-adjust"  href="@Url.Action("Delete", "PRODUCT_tbl", new { id = product.PRODUCT_ID })"></a>
+
+            @*@Html.ActionLink("Edit", "Edit", new { id = product.PRODUCT_ID }) |
+            @Html.ActionLink("Details", "Details", new { id = product.PRODUCT_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = product.PRODUCT_ID })*@
+        </td>
+    </tr>
+}
+
+</table>

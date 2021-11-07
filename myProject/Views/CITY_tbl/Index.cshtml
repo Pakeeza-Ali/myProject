@@ -1,0 +1,41 @@
+﻿@model IEnumerable<myProject.Models.CITY_tbl>
+
+@{
+    ViewBag.Title ="Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","CITY_tbl")" class="btn btn-danger">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            City Name
+        </th>
+        <th>
+           Postal Code
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var city in Model) {
+    <tr>
+        <td>
+            @city.CITY_NAME
+        </td>
+        <td>
+            @city.POSTAL_CODE
+        </td>
+        <td>
+            <a class="glyphicon glyphicon-edit ,  btn btn-danger square-btn-adjust" href="@Url.Action("Edit", "CITY_tbl", new { id = city.CITY_ID })"></a>
+            <a class="glyphicon glyphicon-book , btn btn-danger square-btn-adjust"  href="@Url.Action("Details","CITY_tbl", new { id = city.CITY_ID  })"></a>
+            <a class="glyphicon glyphicon-trash , btn btn-danger square-btn-adjust" href="@Url.Action("Delete", "CITY_tbl", new { id = city.CITY_ID })"></a>
+
+            
+        </td>
+    </tr>
+}
+
+</table>

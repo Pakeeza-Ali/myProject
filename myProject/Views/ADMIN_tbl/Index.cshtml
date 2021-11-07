@@ -1,0 +1,64 @@
+﻿@model IEnumerable<myProject.Models.ADMIN_tbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","ADMIN_tbl")" class="btn btn-danger">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Admin Name
+        </th>
+        <th>
+            Admin Email
+        </th>
+        <th>
+           Admin Password
+        </th>
+        <th>
+           Admin Contact
+        </th>
+        <th>
+           ADMIN Address
+        
+    </tr>
+
+@foreach (var admin in Model) 
+{
+      <tr>
+       <td>
+        @admin.ADMIN_NAME
+    </td>
+    <td>
+        @admin.ADMIN_EMAIL
+
+    </td>
+    <td>
+        @admin.ADMIN_PASSWORD
+
+    </td>
+    <td>
+        @admin.ADMIN_CONTACT
+
+    </td>
+    <td>
+        @admin.ADMIN_ADDRESS
+
+    </td>
+    <td>
+        <a class="glyphicon glyphicon-edit btn btn-danger" href="@Url.Action("Edit","ADMIN_tbl",new { id=admin.ADMIN_ID})"></a>
+        <a class="glyphicon glyphicon-book btn btn-danger" href="@Url.Action("Details","ADMIN_tbl",new { id=admin.ADMIN_ID})"></a>
+        <a class="glyphicon glyphicon-trash btn btn-danger" href="@Url.Action("Delete","ADMIN_tbl",new { id=admin.ADMIN_ID})"></a>
+        </td>
+        </tr>
+       
+
+    
+}
+
+</table>

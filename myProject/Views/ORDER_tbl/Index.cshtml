@@ -1,0 +1,58 @@
+﻿@model IEnumerable<myProject.Models.ORDER_tbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","ORDER_tbl")" class="btn btn-danger">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Customer Name 
+        </th>
+        <th>
+            Shop Name
+        </th>
+        <th>
+            Order Date
+        </th>
+        <th>
+            Order Status
+        </th>
+        <th>
+            Payment Mode
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var order in Model) {
+    <tr>
+        <td>
+            order.CUSTOMER_tbl.CUSTOMER_NAME
+        </td>
+        <td>
+            order.SHOP_tbl.SHOP_NAME
+        </td>
+        <td>
+          order.ORDER_DATE
+        </td>
+        <td>
+            order.ORDER_STATUS
+        </td>
+        <td>
+            order.PAYMENT_MODE
+        </td>
+        <td>
+            <a class="glyphicon glyphicon-pencil btn bntn-danger" href="@Url.Action("Edit", "ADMIN_tbl", new { id = order.ORDER_ID })">Edit</a>
+            <a class="glyphicon glyphicon-book btn bntn-danger" href="@Url.Action("Edit", "ADMIN_tbl", new { id = order.ORDER_ID })">Details</a>
+            <a class="glyphicon glyphicon-trash btn bntn-danger" href="@Url.Action("Edit", "ADMIN_tbl", new { id = order.ORDER_ID })">Delete</a>
+
+        </td>
+    </tr>
+}
+
+</table>

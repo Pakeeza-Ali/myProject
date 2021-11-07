@@ -1,0 +1,67 @@
+﻿@model IEnumerable<myProject.Models.SHOP_tbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","SHOP_tbl")" class="btn btn-danger">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            City Name
+        </th>
+        <th>
+            Floor Name
+        </th>
+        <th>
+           Shopkeeper Name
+        </th>
+        <th>
+           Shop Name
+        </th>
+        <th>
+            Shop Address
+        </th>
+        <th>
+            Shop Rent
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var shop in Model) { 
+    <tr>
+        <td>
+            @shop.CITY_tbl.CITY_NAME
+        </td>
+        
+        <td>
+            @shop.FLOOR_tbl.FLOOR_NAME
+        </td>
+        <td>
+            @shop.SHOPKEEPER_tbl.SHOPKEEPER_NAME
+        </td>
+        <td>
+            @shop.SHOP_NAME
+        </td>
+        <td>
+            @shop.SHOP_ADDRESS
+        </td>
+        <td>
+            @shop.SHOP_RENT
+        </td>
+        <td>
+            <a class="glyphicon glyphicon-pencil btn btn-danger square-btn-adjust" href="@Url.Action("Edit", "SHOP_tbl", new { id = shop.SHOP_ID })"></a>
+            <a class="glyphicon glyphicon-book btn btn-danger square-btn-adjust"   href="@Url.Action("Details", "SHOP_tbl", new { id = shop.SHOP_ID })"></a>
+            <a class="glyphicon glyphicon-trash btn btn-danger square-btn-adjust" href="@Url.Action("Delete", "SHOP_tbl", new { id = shop.SHOP_ID })"></a>
+
+            
+        </td>
+   
+    </tr>
+}
+
+</table>

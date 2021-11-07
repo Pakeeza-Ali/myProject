@@ -1,0 +1,65 @@
+﻿@model IEnumerable<myProject.Models.SHOPKEEPER_tbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","SHOPKEEPER_tbl")" class="btn btn-danger">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Shopkeeper Name
+        </th>
+        <th>
+         Shopkeeper Contact
+        </th>
+        <th>
+          Shopkeeper CNIC
+        </th>
+        <th>
+            Shopkeeper Email
+        </th>
+        <th>
+           Shopkeeper Password
+        </th>
+        <th>
+            Shopkeeper Address
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var shopkeeper in Model) {
+    <tr>
+        <td>
+            @shopkeeper.SHOPKEEPER_NAME
+        </td>
+        <td>
+           @shopkeeper.SHOPKEEPER_CONTACT
+        </td>
+        <td>
+            @shopkeeper.SHOPKEEPER_CNIC
+        </td>
+        <td>
+             @shopkeeper.SHOPKEEPER_EMAIL
+        </td>
+        <td>
+             @shopkeeper.SHOPKEEPER_PASSWORD
+        </td>
+        <td>
+             @shopkeeper.SHOPKEEPER_ADDRESS
+        </td>
+        <td>
+            <a class="glyphicon glyphicon-pencil btn btn-danger square-btn-adjust" href="@Url.Action("Edit", "SHOPKEEPER_tbl", new { id = shopkeeper.SHOPKEEPER_ID })"></a>
+            <a class="glyphicon glyphicon-book btn btn-danger square-btn-adjust"   href="@Url.Action("Details", "SHOPKEEPER_tbl", new { id = shopkeeper.SHOPKEEPER_ID})"></a>
+            <a class="glyphicon glyphicon-trash btn btn-danger square-btn-adjust"   href="@Url.Action("Delete", "SHOPKEEPER_tbl", new { id = shopkeeper.SHOPKEEPER_ID })"></a>
+
+           
+        </td>
+    </tr>
+}
+
+</table>

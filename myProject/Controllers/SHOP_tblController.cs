@@ -50,8 +50,13 @@ namespace myProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SHOP_ID,SHOP_NAME,SHOP_ADDRESS,FLOOR_FID,SHOP_RENT,SHOPKEEPER_FID,CITY_FID")] SHOP_tbl sHOP_tbl)
+        public ActionResult Create( SHOP_tbl sHOP_tbl, HttpPostedFileBase pic)
         {
+                string path = Server.MapPath("~/Content/ProjectImages/" + pic.FileName);
+                pic.SaveAs(path);
+                sHOP_tbl.SHOP_IMAGE = "~/Content/ProjectImages/" + pic.FileName;
+            
+
             if (ModelState.IsValid)
             {
                 db.SHOP_tbl.Add(sHOP_tbl);
@@ -88,8 +93,15 @@ namespace myProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SHOP_ID,SHOP_NAME,SHOP_ADDRESS,FLOOR_FID,SHOP_RENT,SHOPKEEPER_FID,CITY_FID")] SHOP_tbl sHOP_tbl)
+        public ActionResult Edit(SHOP_tbl sHOP_tbl, HttpPostedFileBase pic)
         {
+            if (pic != null)
+            {
+                string path = Server.MapPath("~/Content/ProjectImages/" + pic.FileName);
+                pic.SaveAs(path);
+                sHOP_tbl.SHOP_IMAGE = "~/Content/ProjectImages/" + pic.FileName;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(sHOP_tbl).State = EntityState.Modified;

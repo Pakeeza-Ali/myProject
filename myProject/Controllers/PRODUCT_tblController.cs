@@ -48,11 +48,11 @@ namespace myProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PRODUCT_tbl pRODUCT_tbl,HttpPostedFileBase img)
+        public ActionResult Create(PRODUCT_tbl pRODUCT_tbl,HttpPostedFileBase imag)
         {
-            string fullpath=Server.MapPath("~/Content/ProjectImages/"+img.FileName);
-            img.SaveAs(fullpath);
-            pRODUCT_tbl.PRODUCT_IMAGE = "~/Content/ProjectImages/" + img.FileName;
+            string fullpath=Server.MapPath("~/Content/ProjectImages/"+imag.FileName);
+            imag.SaveAs(fullpath);
+            pRODUCT_tbl.PRODUCT_IMAGE = "~/Content/ProjectImages/" + imag.FileName;
 
             if (ModelState.IsValid)
             {
@@ -86,13 +86,13 @@ namespace myProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(PRODUCT_tbl pRODUCT_tbl, HttpPostedFileBase img)
+        public ActionResult Edit(PRODUCT_tbl pRODUCT_tbl, HttpPostedFileBase imag)
         { 
-            if (img != null)
+            if (imag != null)
             {
-                string fullpath = Server.MapPath("~/Content/ProjectImages/" + img.FileName);
-                img.SaveAs(fullpath);
-                pRODUCT_tbl.PRODUCT_IMAGE = "~/Content/ProjectImages/" + img.FileName;
+                string fullpath = Server.MapPath("~/Content/ProjectImages/" + imag.FileName);
+                imag.SaveAs(fullpath);
+                pRODUCT_tbl.PRODUCT_IMAGE = "~/Content/ProjectImages/" + imag.FileName;
             }
             if (ModelState.IsValid)
             {

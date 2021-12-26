@@ -2,25 +2,32 @@
     Layout = "~/Views/Shared/_Layout_Customer.cshtml";
 }
 
-<h2 class="text-center">Login Admin</h2>
-<h6 class="text-center text-danger">@ViewBag.loginerror</h6>
+@{
+    ViewBag.Title = "LoginShopkeeper";
+}
+
+
+<h2 class="text-center">Login Shopkeeper</h2>
+<h6 class="text-center text-danger ">@ViewBag.loginerror</h6>
 <!-- Login Start -->
 
-<form action="/home/LoginAdmin" method="post">
+<form action="/home/LoginShopkeeper" method="post">
     
     <div class="login">
+
+        
         <div class="container-fluid">
-            <div class="col-lg-4"></div>
+            <div class="col-lg-3"></div>
             <div class="col-lg-6">
                 <div class="login-form ">
                     <div class="row">
                         <div class="col-md-6">
                             <label>E-mail / Username</label>
-                            <input name="ADMIN_EMAIL" class="form-control" type="email" placeholder="E-mail / Username">
+                            <input name="SHOPKEEPER_EMAIL" class="form-control" type="email" placeholder="E-mail / Username">
                         </div>
                         <div class="col-md-6">
                             <label>Password</label>
-                            <input name="ADMIN_PASSWORD" class="form-control" type="password" placeholder="Password">
+                            <input name="SHOPKEEPER_PASSWORD" class="form-control" type="password" placeholder="Password">
                         </div>
                         <div class="col-md-12">
                             <div class="custom-control custom-checkbox">
@@ -35,6 +42,7 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-3"></div>
     </div>
 </form>
-<!-- Login End -->
+

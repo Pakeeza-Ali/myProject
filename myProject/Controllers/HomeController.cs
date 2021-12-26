@@ -30,6 +30,18 @@ namespace myProject.Controllers
 
             return View();
         }
+        public ActionResult Shops()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+        public ActionResult Product()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
 
 
         public ActionResult Contact()
@@ -44,9 +56,9 @@ namespace myProject.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult LoginAdmin(string email,string password)
+        public ActionResult LoginAdmin(ADMIN_tbl a)
         {
-            int result = db.ADMIN_tbl.Where(x=>x.ADMIN_EMAIL ==email && x.ADMIN_PASSWORD==password).Count();
+            int result = db.ADMIN_tbl.Where(x=>x.ADMIN_EMAIL ==a.ADMIN_EMAIL && x.ADMIN_PASSWORD==a.ADMIN_PASSWORD).Count();
             if (result > 0)
             {
                 return RedirectToAction("IndexAdmin");
@@ -57,7 +69,27 @@ namespace myProject.Controllers
 
                 return View();
             }
+           
+        }
+        public ActionResult LoginShopkeeper()
+        { 
             return View();
+        }
+        [HttpPost]
+        public ActionResult LoginShopkeeper(SHOPKEEPER_tbl s)
+        {
+            int result = db.SHOPKEEPER_tbl.Where(x=>x.SHOPKEEPER_EMAIL == s.SHOPKEEPER_EMAIL && x.SHOPKEEPER_PASSWORD== s.SHOPKEEPER_PASSWORD).Count();
+            if (result > 0)
+            {
+                return RedirectToAction("IndexShopkeeper","home");
+            }
+            else
+            {
+                ViewBag.loginerror = "Invalid Email and Password";
+
+                return View();
+            }
+           
         }
     }
 }

@@ -6,7 +6,7 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create","SHOP_tbl",FormMethod.Post,new {enctype="multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -19,6 +19,17 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SHOP_NAME, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SHOP_NAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.SHOP_IMAGE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="pic" required accept="img/*" />
+
+                @Html.HiddenFor(model => model.SHOP_IMAGE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SHOP_IMAGE, "", new { @class = "text-danger" })
+
             </div>
         </div>
 

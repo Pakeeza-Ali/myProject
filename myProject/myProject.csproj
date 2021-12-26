@@ -315,6 +315,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\myfont.min.js" />
+    <Content Include="Views\Home\Shops.cshtml" />
+    <None Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Shared\all.min.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -373,6 +375,7 @@
     <Content Include="Views\CITY_tbl\Edit.cshtml" />
     <Content Include="Views\CITY_tbl\Index.cshtml" />
     <Content Include="Views\Home\LoginAdmin.cshtml" />
+    <Content Include="Views\Home\LoginShopkeeper.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,6 +21,11 @@ namespace myProject.Models
         [Required]
         [StringLength(50)]
         public string SHOP_NAME { get; set; }
+        
+       
+        [StringLength(500)]
+        public string SHOP_IMAGE { get; set; }
+        
 
         [Required]
         [StringLength(300)]

@@ -30,16 +30,23 @@ namespace myProject.Controllers
 
             return View();
         }
-        public ActionResult Shops()
+        public ActionResult Shops(int? id)
         {
-            ViewBag.Message = "Your application description page.";
+
+            if (id != null)
+            {
+                ViewData["catid"] = id;
+            }
 
             return View();
         }
-        public ActionResult Product()
+        public ActionResult Product(int? id)
         {
-            ViewBag.Message = "Your application description page.";
-
+           // ViewBag.Message = "Your application description page.";
+            if(id!=null)
+            {
+                ViewData["catid"] = id;
+            }
             return View();
         }
 
@@ -51,6 +58,7 @@ namespace myProject.Controllers
             return View();
         }
         
+
         public ActionResult LoginAdmin()
         { 
             return View();

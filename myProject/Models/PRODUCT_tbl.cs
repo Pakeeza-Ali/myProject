@@ -16,6 +16,8 @@ namespace myProject.Models
 
         [Key]
         public int PRODUCT_ID { get; set; }
+        [NotMapped]
+        public int Quantity { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -39,11 +41,11 @@ namespace myProject.Models
         [StringLength(50)]
         public string PRODUCT_AVAILABILITY { get; set; }
 
-        public int CATEGORY_FID { get; set; }
+        public int P_CATEGORY_FID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<C0RDER_DETAIL_tbl> C0RDER_DETAIL_tbl { get; set; }
 
-        public virtual CATEGORY_tbl CATEGORY_tbl { get; set; }
+        public virtual P_CATEGORY_tbl P_CATEGORY_tbl { get; set; }
     }
 }

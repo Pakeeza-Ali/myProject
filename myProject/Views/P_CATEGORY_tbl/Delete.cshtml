@@ -1,0 +1,53 @@
+﻿@model myProject.Models.P_CATEGORY_tbl
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CATEGORY_tbl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SHOP_tbl.SHOP_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SHOP_tbl.SHOP_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P_CATEGORY_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_CATEGORY_NAME)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.P_CATEGORY_ICON)
+
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P_CATEGORY_STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_CATEGORY_STATUS)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

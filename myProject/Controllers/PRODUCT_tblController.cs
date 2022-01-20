@@ -17,7 +17,7 @@ namespace myProject.Controllers
         // GET: PRODUCT_tbl
         public ActionResult Index()
         {
-            var pRODUCT_tbl = db.PRODUCT_tbl.Include(p => p.CATEGORY_tbl);
+            var pRODUCT_tbl = db.PRODUCT_tbl.Include(p => p.P_CATEGORY_tbl);
             return View(pRODUCT_tbl.ToList());
         }
 
@@ -39,7 +39,7 @@ namespace myProject.Controllers
         // GET: PRODUCT_tbl/Create
         public ActionResult Create()
         {
-            ViewBag.CATEGORY_FID = new SelectList(db.CATEGORY_tbl, "CATEGORY_ID", "CATEGORY_NAME");
+            ViewBag.P_CATEGORY_FID = new SelectList(db.P_CATEGORY_tbl, "P_CATEGORY_ID", "P_CATEGORY_NAME");
             return View();
         }
 
@@ -61,7 +61,7 @@ namespace myProject.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CATEGORY_FID = new SelectList(db.CATEGORY_tbl, "CATEGORY_ID", "CATEGORY_NAME", pRODUCT_tbl.CATEGORY_FID);
+            ViewBag.P_CATEGORY_FID = new SelectList(db.P_CATEGORY_tbl, "P_CATEGORY_ID", "P_CATEGORY_NAME", pRODUCT_tbl.P_CATEGORY_FID);
             return View(pRODUCT_tbl);
         }
 
@@ -77,7 +77,7 @@ namespace myProject.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CATEGORY_FID = new SelectList(db.CATEGORY_tbl, "CATEGORY_ID", "CATEGORY_NAME", pRODUCT_tbl.CATEGORY_FID);
+            ViewBag.CATEGORY_FID = new SelectList(db.P_CATEGORY_tbl, "P_CATEGORY_ID", "P_CATEGORY_NAME", pRODUCT_tbl.P_CATEGORY_FID);
             return View(pRODUCT_tbl);
         }
 
@@ -100,7 +100,7 @@ namespace myProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CATEGORY_FID = new SelectList(db.CATEGORY_tbl, "CATEGORY_ID", "CATEGORY_NAME", pRODUCT_tbl.CATEGORY_FID);
+            ViewBag.P_CATEGORY_FID = new SelectList(db.P_CATEGORY_tbl, "P_CATEGORY_ID", "P_CATEGORY_NAME", pRODUCT_tbl.P_CATEGORY_FID);
             return View(pRODUCT_tbl);
         }
 

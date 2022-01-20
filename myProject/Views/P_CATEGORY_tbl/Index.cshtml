@@ -1,0 +1,55 @@
+﻿
+@model IEnumerable<myProject.Models.P_CATEGORY_tbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","P_CATEGORY_tbl")" class="btn btn-danger">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Shop Name
+        </th>
+        <th>
+            Category Name
+        </th>
+        <th>
+            Category Icon
+        </th>
+        <th>
+            Category status
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>
+                @category.SHOP_tbl.SHOP_NAME
+            </td>
+            <td>
+                @category.P_CATEGORY_NAME
+            </td>
+            <td>
+                <img src="@Url.Content(category.P_CATEGORY_ICON)" width="100" height="100" />
+            </td>
+            <td>
+                @category.P_CATEGORY_STATUS
+            </td>
+            <td>
+                <a class="glyphicon glyphicon-pencil btn btn-danger square-btn-adjust" href="@Url.Action("Edit", "P_CATEGORY_tbl", new { id = category.P_CATEGORY_ID })"></a>
+                <a class="glyphicon glyphicon-book btn btn-danger square-btn-adjust"   href="@Url.Action("Details", "P_CATEGORY_tbl", new { id = category.P_CATEGORY_ID })"></a>
+                <a class="glyphicon glyphicon-trash btn btn-danger square-btn-adjust"  href="@Url.Action("Delete", "P_CATEGORY_tbl", new { id = category.P_CATEGORY_ID })"></a>
+
+
+            </td>
+        </tr>
+    }
+
+</table>

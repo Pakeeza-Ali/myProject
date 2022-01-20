@@ -10,107 +10,119 @@ using myProject.Models;
 
 namespace myProject.Controllers
 {
-    public class FLOOR_tblController : Controller
+    public class SHP_CATEGORY_tblController : Controller
     {
         private Model1 db = new Model1();
 
-        // GET: FLOOR_tbl
+        // GET: SHP_CATEGORY_tbl
         public ActionResult Index()
         {
-            return View(db.FLOOR_tbl.ToList());
+            return View(db.SHP_CATEGORY_tbl.ToList());
         }
 
-        // GET: FLOOR_tbl/Details/5
+        // GET: SHP_CATEGORY_tbl/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FLOOR_tbl fLOOR_tbl = db.FLOOR_tbl.Find(id);
-            if (fLOOR_tbl == null)
+            SHP_CATEGORY_tbl sHP_CATEGORY_tbl = db.SHP_CATEGORY_tbl.Find(id);
+            if (sHP_CATEGORY_tbl == null)
             {
                 return HttpNotFound();
             }
-            return View(fLOOR_tbl);
+            return View(sHP_CATEGORY_tbl);
         }
 
-        // GET: FLOOR_tbl/Create
+        // GET: SHP_CATEGORY_tbl/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: FLOOR_tbl/Create
+        // POST: SHP_CATEGORY_tbl/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FLOOR_ID,FLOOR_NAME")] FLOOR_tbl fLOOR_tbl)
+        public ActionResult Create(SHP_CATEGORY_tbl sHP_CATEGORY_tbl, HttpPostedFileBase icon)
         {
+            if (icon != null)
+            {
+                string fullpath = Server.MapPath("~/Content/ProjectImages/" + icon.FileName);
+                icon.SaveAs(fullpath);
+                sHP_CATEGORY_tbl.SHP_CATEGORY_ICON = "~/Content/ProjectImages/" + icon.FileName;
+            }
             if (ModelState.IsValid)
             {
-                db.FLOOR_tbl.Add(fLOOR_tbl);
+                db.SHP_CATEGORY_tbl.Add(sHP_CATEGORY_tbl);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(fLOOR_tbl);
+            return View(sHP_CATEGORY_tbl);
         }
 
-        // GET: FLOOR_tbl/Edit/5
+        // GET: SHP_CATEGORY_tbl/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FLOOR_tbl fLOOR_tbl = db.FLOOR_tbl.Find(id);
-            if (fLOOR_tbl == null)
+            SHP_CATEGORY_tbl sHP_CATEGORY_tbl = db.SHP_CATEGORY_tbl.Find(id);
+            if (sHP_CATEGORY_tbl == null)
             {
                 return HttpNotFound();
             }
-            return View(fLOOR_tbl);
+            return View(sHP_CATEGORY_tbl);
         }
 
-        // POST: FLOOR_tbl/Edit/5
+        // POST: SHP_CATEGORY_tbl/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FLOOR_ID,FLOOR_NAME")] FLOOR_tbl fLOOR_tbl)
+        public ActionResult Edit(SHP_CATEGORY_tbl sHP_CATEGORY_tbl,HttpPostedFileBase icon)
         {
+            if (icon != null)
+            {
+                string fullpath = Server.MapPath("~/Content/ProjectImages/" + icon.FileName);
+                icon.SaveAs(fullpath);
+                sHP_CATEGORY_tbl.SHP_CATEGORY_ICON = "~/Content/ProjectImages/" + icon.FileName;
+            }
             if (ModelState.IsValid)
             {
-                db.Entry(fLOOR_tbl).State = EntityState.Modified;
+                db.Entry(sHP_CATEGORY_tbl).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(fLOOR_tbl);
+            return View(sHP_CATEGORY_tbl);
         }
 
-        // GET: FLOOR_tbl/Delete/5
+        // GET: SHP_CATEGORY_tbl/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FLOOR_tbl fLOOR_tbl = db.FLOOR_tbl.Find(id);
-            if (fLOOR_tbl == null)
+            SHP_CATEGORY_tbl sHP_CATEGORY_tbl = db.SHP_CATEGORY_tbl.Find(id);
+            if (sHP_CATEGORY_tbl == null)
             {
                 return HttpNotFound();
             }
-            return View(fLOOR_tbl);
+            return View(sHP_CATEGORY_tbl);
         }
 
-        // POST: FLOOR_tbl/Delete/5
+        // POST: SHP_CATEGORY_tbl/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            FLOOR_tbl fLOOR_tbl = db.FLOOR_tbl.Find(id);
-            db.FLOOR_tbl.Remove(fLOOR_tbl);
+            SHP_CATEGORY_tbl sHP_CATEGORY_tbl = db.SHP_CATEGORY_tbl.Find(id);
+            db.SHP_CATEGORY_tbl.Remove(sHP_CATEGORY_tbl);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -129,24 +129,25 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ADMIN_tblController.cs" />
-    <Compile Include="Controllers\CATEGORY_tblController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\P_CATEGORY_tblController.cs" />
     <Compile Include="Controllers\CITY_tblController.cs" />
-    <Compile Include="Controllers\FLOOR_tblController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ORDER_tblController.cs" />
     <Compile Include="Controllers\PRODUCT_tblController.cs" />
     <Compile Include="Controllers\SHOPKEEPER_tblController.cs" />
     <Compile Include="Controllers\SHOP_tblController.cs" />
+    <Compile Include="Controllers\SHP_CATEGORY_tblController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ADMIN_tbl.cs" />
     <Compile Include="Models\C0RDER_DETAIL_tbl.cs" />
-    <Compile Include="Models\CATEGORY_tbl.cs" />
+    <Compile Include="Models\P_CATEGORY_tbl.cs" />
     <Compile Include="Models\CITY_tbl.cs" />
     <Compile Include="Models\CUSTOMER_tbl.cs" />
     <Compile Include="Models\C_FEEDBACK_tbl.cs" />
-    <Compile Include="Models\FLOOR_tbl.cs" />
+    <Compile Include="Models\SHP_CATEGORY_tbl.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\ORDER_tbl.cs" />
     <Compile Include="Models\PRODUCT_tbl.cs" />
@@ -303,6 +304,9 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -316,6 +320,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\myfont.min.js" />
     <Content Include="Views\Home\Shops.cshtml" />
+    <Content Include="Views\Cart\DisplayCart.cshtml" />
     <None Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Shared\all.min.css" />
     <Content Include="Web.config" />
@@ -349,16 +354,11 @@
     <Content Include="Views\SHOP_tbl\Details.cshtml" />
     <Content Include="Views\SHOP_tbl\Edit.cshtml" />
     <Content Include="Views\SHOP_tbl\Index.cshtml" />
-    <Content Include="Views\FLOOR_tbl\Create.cshtml" />
-    <Content Include="Views\FLOOR_tbl\Delete.cshtml" />
-    <Content Include="Views\FLOOR_tbl\Details.cshtml" />
-    <Content Include="Views\FLOOR_tbl\Edit.cshtml" />
-    <Content Include="Views\FLOOR_tbl\Index.cshtml" />
-    <Content Include="Views\CATEGORY_tbl\Create.cshtml" />
-    <Content Include="Views\CATEGORY_tbl\Delete.cshtml" />
-    <Content Include="Views\CATEGORY_tbl\Details.cshtml" />
-    <Content Include="Views\CATEGORY_tbl\Edit.cshtml" />
-    <Content Include="Views\CATEGORY_tbl\Index.cshtml" />
+    <Content Include="Views\P_CATEGORY_tbl\Create.cshtml" />
+    <Content Include="Views\P_CATEGORY_tbl\Delete.cshtml" />
+    <Content Include="Views\P_CATEGORY_tbl\Details.cshtml" />
+    <Content Include="Views\P_CATEGORY_tbl\Edit.cshtml" />
+    <Content Include="Views\P_CATEGORY_tbl\Index.cshtml" />
     <Content Include="Views\PRODUCT_tbl\Create.cshtml" />
     <Content Include="Views\PRODUCT_tbl\Delete.cshtml" />
     <Content Include="Views\PRODUCT_tbl\Details.cshtml" />
@@ -376,6 +376,11 @@
     <Content Include="Views\CITY_tbl\Index.cshtml" />
     <Content Include="Views\Home\LoginAdmin.cshtml" />
     <Content Include="Views\Home\LoginShopkeeper.cshtml" />
+    <Content Include="Views\SHP_CATEGORY_tbl\Create.cshtml" />
+    <Content Include="Views\SHP_CATEGORY_tbl\Delete.cshtml" />
+    <Content Include="Views\SHP_CATEGORY_tbl\Details.cshtml" />
+    <Content Include="Views\SHP_CATEGORY_tbl\Edit.cshtml" />
+    <Content Include="Views\SHP_CATEGORY_tbl\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

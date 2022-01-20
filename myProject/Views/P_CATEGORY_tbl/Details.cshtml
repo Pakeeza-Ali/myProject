@@ -1,4 +1,4 @@
-﻿@model myProject.Models.CATEGORY_tbl
+﻿@model myProject.Models.P_CATEGORY_tbl
 
 @{
     ViewBag.Title = "Details";
@@ -19,24 +19,24 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CATEGORY_NAME)
+            @Html.DisplayNameFor(model => model.P_CATEGORY_NAME)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CATEGORY_NAME)
+            @Html.DisplayFor(model => model.P_CATEGORY_NAME)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CRTEGORY_STATUS)
+            @Html.DisplayNameFor(model => model.P_CATEGORY_STATUS)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CRTEGORY_STATUS)
+            @Html.DisplayFor(model => model.P_CATEGORY_STATUS)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CATEGORY_ID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.P_CATEGORY_ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

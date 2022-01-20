@@ -17,7 +17,7 @@ namespace myProject.Controllers
         // GET: SHOP_tbl
         public ActionResult Index()
         {
-            var sHOP_tbl = db.SHOP_tbl.Include(s => s.CITY_tbl).Include(s => s.FLOOR_tbl).Include(s => s.SHOPKEEPER_tbl);
+            var sHOP_tbl = db.SHOP_tbl.Include(s => s.CITY_tbl).Include(s => s.SHP_CATEGORY_tbl).Include(s => s.SHOPKEEPER_tbl);
             return View(sHOP_tbl.ToList());
         }
 
@@ -40,7 +40,7 @@ namespace myProject.Controllers
         public ActionResult Create()
         {
             ViewBag.CITY_FID = new SelectList(db.CITY_tbl, "CITY_ID", "CITY_NAME");
-            ViewBag.FLOOR_FID = new SelectList(db.FLOOR_tbl, "FLOOR_ID", "FLOOR_NAME");
+            ViewBag.SHP_CATEGORY_FID = new SelectList(db.SHP_CATEGORY_tbl, "SHP_CATEGORY_ID", "SHP_CATEGORY_NAME", "SHP_CATEGORY_STATUS");
             ViewBag.SHOPKEEPER_FID = new SelectList(db.SHOPKEEPER_tbl, "SHOPKEEPER_ID", "SHOPKEEPER_NAME");
             return View();
         }
@@ -65,7 +65,7 @@ namespace myProject.Controllers
             }
 
             ViewBag.CITY_FID = new SelectList(db.CITY_tbl, "CITY_ID", "CITY_NAME", sHOP_tbl.CITY_FID);
-            ViewBag.FLOOR_FID = new SelectList(db.FLOOR_tbl, "FLOOR_ID", "FLOOR_NAME", sHOP_tbl.FLOOR_FID);
+            ViewBag.SHP_CATEGORY_FID = new SelectList(db.SHP_CATEGORY_tbl, "SHP_CATEGORY_ID", "SHP_CATEGORY_NAME", "SHP_CATEGORY_STATUS", sHOP_tbl.SHP_CATEGORY_FID);
             ViewBag.SHOPKEEPER_FID = new SelectList(db.SHOPKEEPER_tbl, "SHOPKEEPER_ID", "SHOPKEEPER_NAME", sHOP_tbl.SHOPKEEPER_FID);
             return View(sHOP_tbl);
         }
@@ -83,7 +83,7 @@ namespace myProject.Controllers
                 return HttpNotFound();
             }
             ViewBag.CITY_FID = new SelectList(db.CITY_tbl, "CITY_ID", "CITY_NAME", sHOP_tbl.CITY_FID);
-            ViewBag.FLOOR_FID = new SelectList(db.FLOOR_tbl, "FLOOR_ID", "FLOOR_NAME", sHOP_tbl.FLOOR_FID);
+            ViewBag.FLOOR_FID = new SelectList(db.SHP_CATEGORY_tbl, "FLOOR_ID", "FLOOR_NAME", sHOP_tbl.SHP_CATEGORY_FID);
             ViewBag.SHOPKEEPER_FID = new SelectList(db.SHOPKEEPER_tbl, "SHOPKEEPER_ID", "SHOPKEEPER_NAME", sHOP_tbl.SHOPKEEPER_FID);
             return View(sHOP_tbl);
         }
@@ -109,7 +109,7 @@ namespace myProject.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CITY_FID = new SelectList(db.CITY_tbl, "CITY_ID", "CITY_NAME", sHOP_tbl.CITY_FID);
-            ViewBag.FLOOR_FID = new SelectList(db.FLOOR_tbl, "FLOOR_ID", "FLOOR_NAME", sHOP_tbl.FLOOR_FID);
+            ViewBag.FLOOR_FID = new SelectList(db.SHP_CATEGORY_tbl, "SHP_CATEGORY_ID", "SHP_CATEGORY_NAME", "SHP_CATEGORY_ICON", "SHP_CATEGORY_STATUS", sHOP_tbl.SHP_CATEGORY_FID);
             ViewBag.SHOPKEEPER_FID = new SelectList(db.SHOPKEEPER_tbl, "SHOPKEEPER_ID", "SHOPKEEPER_NAME", sHOP_tbl.SHOPKEEPER_FID);
             return View(sHOP_tbl);
         }

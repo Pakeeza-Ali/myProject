@@ -10,14 +10,14 @@ using myProject.Models;
 
 namespace myProject.Controllers
 {
-    public class CATEGORY_tblController : Controller
+    public class P_CATEGORY_tblController : Controller
     {
         private Model1 db = new Model1();
 
         // GET: CATEGORY_tbl
         public ActionResult Index()
         {
-            var cATEGORY_tbl = db.CATEGORY_tbl.Include(c => c.SHOP_tbl);
+            var cATEGORY_tbl = db.P_CATEGORY_tbl.Include(c => c.SHOP_tbl);
             return View(cATEGORY_tbl.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace myProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CATEGORY_tbl cATEGORY_tbl = db.CATEGORY_tbl.Find(id);
+            P_CATEGORY_tbl cATEGORY_tbl = db.P_CATEGORY_tbl.Find(id);
             if (cATEGORY_tbl == null)
             {
                 return HttpNotFound();
@@ -48,11 +48,17 @@ namespace myProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CATEGORY_ID,CATEGORY_NAME,CRTEGORY_STATUS,SHOP_FID")] CATEGORY_tbl cATEGORY_tbl)
+        public ActionResult Create(P_CATEGORY_tbl cATEGORY_tbl, HttpPostedFileBase pro_icon)
         {
+            if (pro_icon != null)
+            {
+                string fullpath = Server.MapPath("~/Content/ProjectImages/" + pro_icon.FileName);
+                pro_icon.SaveAs(fullpath);
+                cATEGORY_tbl.P_CATEGORY_ICON = "~/Content/ProjectImages/" + pro_icon.FileName;
+            }
             if (ModelState.IsValid)
             {
-                db.CATEGORY_tbl.Add(cATEGORY_tbl);
+                db.P_CATEGORY_tbl.Add(cATEGORY_tbl);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -68,7 +74,7 @@ namespace myProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CATEGORY_tbl cATEGORY_tbl = db.CATEGORY_tbl.Find(id);
+            P_CATEGORY_tbl cATEGORY_tbl = db.P_CATEGORY_tbl.Find(id);
             if (cATEGORY_tbl == null)
             {
                 return HttpNotFound();
@@ -82,8 +88,14 @@ namespace myProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CATEGORY_ID,CATEGORY_NAME,CRTEGORY_STATUS,SHOP_FID")] CATEGORY_tbl cATEGORY_tbl)
+        public ActionResult Edit(P_CATEGORY_tbl cATEGORY_tbl, HttpPostedFileBase pic)
         {
+            if (pic != null)
+            {
+                string fullpath = Server.MapPath("~/Content/ProjectImages/" + pic.FileName);
+                pic.SaveAs(fullpath);
+                cATEGORY_tbl.P_CATEGORY_ICON = "~/Content/ProjectImages/" + pic.FileName;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(cATEGORY_tbl).State = EntityState.Modified;
@@ -101,7 +113,7 @@ namespace myProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CATEGORY_tbl cATEGORY_tbl = db.CATEGORY_tbl.Find(id);
+            P_CATEGORY_tbl cATEGORY_tbl = db.P_CATEGORY_tbl.Find(id);
             if (cATEGORY_tbl == null)
             {
                 return HttpNotFound();
@@ -114,8 +126,8 @@ namespace myProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CATEGORY_tbl cATEGORY_tbl = db.CATEGORY_tbl.Find(id);
-            db.CATEGORY_tbl.Remove(cATEGORY_tbl);
+            P_CATEGORY_tbl cATEGORY_tbl = db.P_CATEGORY_tbl.Find(id);
+            db.P_CATEGORY_tbl.Remove(cATEGORY_tbl);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -15,7 +15,7 @@
     <!-- CSS Libraries -->
     <link href="~/Content/Customer/css/bootstrap.min.css" rel="stylesheet" />
 
-    
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="~/content/customer/lib/slick/slick.css" rel="stylesheet">
     <link href="~/content/customer/lib/slick/slick-theme.css" rel="stylesheet">
@@ -30,11 +30,11 @@
             <div class="row">
                 <div class="col-sm-6">
                     <i class="fa fa-envelope"></i>
-                    support@email.com
+                 <a href="mailto:emart.help1@gmail.com">  emart.help1@gmail.com</a>
                 </div>
                 <div class="col-sm-6">
                     <i class="fa fa-phone-alt"></i>
-                    +012-345-6789
+                    +92 317 7855508
                 </div>
             </div>
         </div>
@@ -51,12 +51,12 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto">
-                        <a href="Url.Action("IndexCustomer","Home")" class="nav-item nav-link active">Home</a>
-                        <a href="product-list.html" class="nav-item nav-link">Products</a>
-                        <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
-                        <a href="cart.html" class="nav-item nav-link">Cart</a>
-                        <a href="checkout.html" class="nav-item nav-link">Checkout</a>
-                        <a href="my-account.html" class="nav-item nav-link">My Account</a>
+                        <a href="@Url.Action("IndexCustomer","Home")" class="nav-item nav-link active">Home</a>
+                        <a href="@Url.Action("Shops","Home")" class="nav-item nav-link">Shops</a>
+                        <a href="@Url.Action("Product","Home")" class="nav-item nav-link">Products</a>
+                        <a href="@Url.Action("DisplayCart","Cart")" class="nav-item nav-link">Cart</a>
+                        <a href="@Url.Action("DisplayCart","Cart")" class="nav-item nav-link">Checkout</a>
+                        <a href="@Url.Action("Login","Home")" class="nav-item nav-link">My Account</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
                             <div class="dropdown-menu">
@@ -86,8 +86,8 @@
             <div class="row align-items-center">
                 <div class="col-md-3">
                     <div class="logo">
-                        <a href="index.html">
-                            <img src="img/logo.png" alt="Logo">
+                        <a href="@Url.Action("IndexCustomer","Home")">
+                            <img src="~/Content/Customer/img/logo.png" alt="Logo">
                         </a>
                     </div>
                 </div>
@@ -174,15 +174,15 @@
                 <div class="col-md-6">
                     <div class="payment-method">
                         <h2>We Accept:</h2>
-                        <img src="img/payment-method.png" alt="Payment Method" />
+                        <img src="~/Content/Customer/img/payment-method.png" alt="Payment Method" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="payment-security">
                         <h2>Secured By:</h2>
-                        <img src="img/godaddy.svg" alt="Payment Security" />
-                        <img src="img/norton.svg" alt="Payment Security" />
-                        <img src="img/ssl.svg" alt="Payment Security" />
+                        <img src="~/Content/Customer/img/godaddy.svg" alt="Payment Security" />
+                        <img src="~/Content/Customer/img/norton.svg" alt="Payment Security" />
+                        <img src="~/Content/Customer/img/ssl.svg" alt="Payment Security" />
                     </div>
                 </div>
             </div>
@@ -207,7 +207,7 @@
     <!-- Back to Top -->
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
- 
+
 
 
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>

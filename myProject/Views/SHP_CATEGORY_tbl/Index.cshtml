@@ -1,0 +1,50 @@
+﻿@model IEnumerable<myProject.Models.SHP_CATEGORY_tbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Shop_Category_Name
+        </th>
+        <th>
+            Shop_Category_Icon
+        </th>
+        <th>
+            Shop_Category_Status
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var shpcategory in Model)
+    {
+        <tr>
+            <td>
+                @shpcategory.SHP_CATEGORY_NAME
+            </td>
+            <td>
+                <img src="@Url.Content(shpcategory.SHP_CATEGORY_ICON)" width="100" height="100" />
+            </td>
+            <td>
+                @shpcategory.SHP_CATEGORY_STATUS
+            </td>
+            <td>
+                <a class="glyphicon glyphicon-edit btn btn-danger" href="@Url.Action("Edit","SHP_CATEGORY_tbl",new { id=shpcategory.SHP_CATEGORY_ID})"></a>
+                <a class="glyphicon glyphicon-book btn btn-danger" href="@Url.Action("Details","SHP_CATEGORY_tbl",new { id=shpcategory.SHP_CATEGORY_ID})"></a>
+                <a class="glyphicon glyphicon-trash btn btn-danger" href="@Url.Action("Delete","SHP_CATEGORY_tbl",new { id=shpcategory.SHP_CATEGORY_ID})"></a>
+
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.SHP_CATEGORY_ID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.SHP_CATEGORY_ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.SHP_CATEGORY_ID })*@
+            </td>
+        </tr>
+    }
+
+</table>

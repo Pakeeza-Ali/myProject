@@ -15,10 +15,10 @@ namespace myProject.Models
         public virtual DbSet<C0RDER_DETAIL_tbl> C0RDER_DETAIL_tbl { get; set; }
         public virtual DbSet<ADMIN_tbl> ADMIN_tbl { get; set; }
         public virtual DbSet<C_FEEDBACK_tbl> C_FEEDBACK_tbl { get; set; }
-        public virtual DbSet<CATEGORY_tbl> CATEGORY_tbl { get; set; }
+        public virtual DbSet<P_CATEGORY_tbl> P_CATEGORY_tbl { get; set; }
         public virtual DbSet<CITY_tbl> CITY_tbl { get; set; }
         public virtual DbSet<CUSTOMER_tbl> CUSTOMER_tbl { get; set; }
-        public virtual DbSet<FLOOR_tbl> FLOOR_tbl { get; set; }
+        public virtual DbSet<SHP_CATEGORY_tbl> SHP_CATEGORY_tbl { get; set; }
         public virtual DbSet<ORDER_tbl> ORDER_tbl { get; set; }
         public virtual DbSet<PRODUCT_tbl> PRODUCT_tbl { get; set; }
         public virtual DbSet<S_FEEDBACK_tbl> S_FEEDBACK_tbl { get; set; }
@@ -27,10 +27,10 @@ namespace myProject.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CATEGORY_tbl>()
+            modelBuilder.Entity<P_CATEGORY_tbl>()
                 .HasMany(e => e.PRODUCT_tbl)
-                .WithRequired(e => e.CATEGORY_tbl)
-                .HasForeignKey(e => e.CATEGORY_FID)
+                .WithRequired(e => e.P_CATEGORY_tbl)
+                .HasForeignKey(e => e.P_CATEGORY_FID)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CITY_tbl>()
@@ -51,10 +51,10 @@ namespace myProject.Models
                 .HasForeignKey(e => e.CUSTOMER_FID)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<FLOOR_tbl>()
+            modelBuilder.Entity<SHP_CATEGORY_tbl>()
                 .HasMany(e => e.SHOP_tbl)
-                .WithRequired(e => e.FLOOR_tbl)
-                .HasForeignKey(e => e.FLOOR_FID)
+                .WithRequired(e => e.SHP_CATEGORY_tbl)
+                .HasForeignKey(e => e.SHP_CATEGORY_FID)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<ORDER_tbl>()
@@ -70,7 +70,7 @@ namespace myProject.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SHOP_tbl>()
-                .HasMany(e => e.CATEGORY_tbl)
+                .HasMany(e => e.P_CATEGORY_tbl)
                 .WithRequired(e => e.SHOP_tbl)
                 .HasForeignKey(e => e.SHOP_FID)
                 .WillCascadeOnDelete(false);
